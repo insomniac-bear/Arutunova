@@ -1,7 +1,11 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import Image from 'next/image';
+import './globals.css';
+import styles from './layout.module.css';
+import { Inter } from 'next/font/google';
+import Link from 'next/link';
+import logoImage from '../public/logo.svg';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Create Next App',
@@ -14,8 +18,37 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="ru">
+      <body className={inter.className}>
+        <header className={styles.header}>
+          <Image
+            src={logoImage}
+            alt='logo'
+            width={257}
+            height={36}
+          />
+          <nav className={styles.nav}>
+            <ul className={styles.nav_list}>
+              <li className={styles.nav_item}>
+                <Link href={'/'} className={styles.nav_link}>
+                  Уроки
+                </Link>
+              </li>
+              <li className={styles.nav_item}>
+                <Link href={'/'} className={styles.nav_link}>
+                  Галерея
+                </Link>
+              </li>
+              <li className={styles.nav_item}>
+                <Link href={'/'} className={styles.nav_link}>
+                  Блог
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        {children}
+      </body>
     </html>
   )
 }

@@ -1,95 +1,51 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import styles from './page.module.css';
+import logo from '../public/logo.svg';
+import Image from 'next/image';
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
+      <section
+        className={styles.intro}
+      >
         <Image
           className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          alt='Sasha Arutunova'
+          src={logo}
+          width={739}
+          height={87}
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+        <h2
+          className={styles.title}
         >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+          Иллюстратор / автор обучающих программ программ
+        </h2>
+        <p
+          className={styles.note}
         >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+          Обучение скетчингу и рисованию на iPad.
+        </p>
+        <button
+          className={styles.button}
         >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+          Начать обучаться
+        </button>
+      </section>
+      <section>
+        <h2>Об авторе</h2>
+        <p>Привет! Я - Саша. По образованию дизайнер, по призванию художник. Работала с Rendez-Vous, Cosmopolitan, Seasons Project, Wedding Magazine.</p>
+        <p>В роли преподавателя уже 7 лет и часто слышу, что хорошо умею объяснять. Cо мной комфортно, а главное - есть результаты.</p>
+        <p>Этот блог - большая образовательная программа для всех, кто хочет рисовать на iPad.</p>
+        <p>Присоединяйтесь, давайте рисовать вместе ♡</p>
+      </section>
+      <section>
+        <h2>Программа обучения</h2>
+        <ul>
+          <li className={styles.list}>Уроки с обучающим видео и с пошаговой инструкцией</li>
+          <li>Проверка домашней работы с подробными комментариями преподавателя</li>
+          <li>Полезная информация и обзоры проверенных кистей в PROCREATE</li>
+        </ul>
+      </section>
     </main>
   )
 }
