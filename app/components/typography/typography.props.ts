@@ -15,6 +15,5 @@ type TCSSType =
 export type ITypographyProps<C extends ElementType> = {
   as?: C;
   children: ReactNode;
-  classNames?: string;
   CSSType?: TCSSType;
 } & ComponentPropsWithoutRef<C>;

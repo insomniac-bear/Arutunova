@@ -7,16 +7,14 @@ import cn from 'classnames';
 export const Typography = <C extends ElementType>({
   as,
   children,
-  classNames,
+  className,
   CSSType = 'heading-1',
   ...restProps
 }: ITypographyProps<C>) => {
   const Component = as || 'span';
   const componentStyles = cn(styles[CSSType], {
-    [classNames ?? '']: classNames,
+    [className ?? '']: className,
   });
-
-  console.log(componentStyles);
 
   return (
     <Component className={componentStyles} {...restProps}>

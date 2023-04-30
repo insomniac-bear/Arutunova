@@ -1,41 +1,80 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  min-height: 100vh;
-}
+@layer page {
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 100vh;
+  }
 
-.intro {
-  width: 100vw;
-  padding-top: 204px;
-  padding-bottom: 298px;
-  background-color: var(--40);
-  background-image: url(../public/app-bg.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+  .intro {
+    width: 100vw;
+    padding-top: 204px;
+    padding-bottom: 298px;
+    background-color: var(--40);
+    background-image: url(../public/app-bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
-.logo {
-  display: block;
-}
+  .logo {
+    margin-left: 72px;
+    display: block;
+  }
 
-.title {
-  display: block;
-  margin: 12px 0 0 72px;
-  color: var(--main);
-  text-transform: uppercase;
-}
+  .title {
+    display: block;
+    margin: 12px 0 0 72px;
+    color: var(--main);
+    text-transform: uppercase;
+  }
 
-.note {
-  margin: 49px 0 0 72px;
-  color: var(--main);
-}
+  .note {
+    margin: 49px 0 0 72px;
+    color: var(--main);
+  }
 
-.button {
-  margin: 49px 0 0 72px;
-}
+  .button {
+    margin: 49px 0 0 72px;
+    padding: 8px 80px;
+  }
 
-.list {
-  list-style: circle;
+  .about {
+    padding: 140px 0;
+    background-color: var(--light);
+  }
+
+  .about__content {
+    display: grid;
+    gap: 9.3vw;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    margin: 0 auto;
+    width: fit-content;
+  }
+
+  .about__story {
+    max-width: 526px;
+
+  }
+
+  .about__title {
+    margin-bottom: 40px;
+    color: var(--main);
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--main);
+    width: fit-content;
+    max-width: 526px;
+  }
+
+  .about__text {
+    grid-column: 1/1;
+    margin-bottom: 12px;
+    color: var(--main);
+    max-width: 526px;
+  }
+
+  .list {
+    list-style: disc;
+  }
 }

@@ -1,45 +1,44 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font: var(--f-text-m);
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.button {
-  border: none;
-  padding: 8px 80px;
-  color: var(--light);
-  background-color: var(--main);
-}
-
-.button:disabled {
-  color: var(--main);
-  background-color: var(--40);
-}
-
-.button:focus {
-  padding: 7px 79px;
-  outline: none;
-  border: 1px solid var(--dark);
-}
-
-@media (hover: hover) {
-  .button:hover {
-    background-color: var(--60);
+@layer global {
+  * {
+    box-sizing: border-box;
   }
-}
 
-.title {
-  color: var(--main);
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .button {
+    border: none;
+    padding: 8px 80px;
+    color: var(--light);
+    background-color: var(--main);
+  }
+
+  .button:disabled {
+    color: var(--main);
+    background-color: var(--40);
+  }
+
+  .button:focus {
+    padding: 7px 79px;
+    outline: none;
+    border: 1px solid var(--dark);
+  }
+
+  @media (hover: hover) {
+    .button:hover {
+      background-color: var(--60);
+    }
+  }
+
+  .title {
+    color: var(--main);
+  }
 }

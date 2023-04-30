@@ -1,7 +1,9 @@
 import styles from './page.module.css';
-import logo from '../public/logo.svg';
-import Image from 'next/image';
 import { Typography } from './components/typography/typography';
+import LogoImg from '../public/logo.png';
+import AboutImage from '../public/about-photo.jpg';
+import Image from 'next/image';
+import { Button } from './components/button/button';
 
 export default function Home() {
   return (
@@ -11,40 +13,84 @@ export default function Home() {
       >
         <Image
           className={styles.logo}
-          alt='Sasha Arutunova'
-          src={logo}
+          src={LogoImg}
           width={739}
           height={87}
+          alt='Sasha Arutunova'
         />
         <Typography
           as='h2'
           CSSType='heading-3'
           className={styles.title}
         >
-          Иллюстратор / автор обучающих программ программ
+          Иллюстратор / автор обучающих программ
         </Typography>
-        <p
+        <Typography
+          as='p'
+          CSSType='title-m'
           className={styles.note}
         >
           Обучение скетчингу и рисованию на iPad.
-        </p>
-        <button
-          className={`button ${styles.button}`}
+        </Typography>
+        <Button
+          styleType='primary'
+          className={styles.button}
         >
           Начать обучаться
-        </button>
+        </Button>
       </section>
+
       <section className={styles.about}>
-        <h2>Об авторе</h2>
-        <p>Привет! Я - Саша. По образованию дизайнер, по призванию художник. Работала с Rendez-Vous, Cosmopolitan, Seasons Project, Wedding Magazine.</p>
-        <p>В роли преподавателя уже 7 лет и часто слышу, что хорошо умею объяснять. Cо мной комфортно, а главное - есть результаты.</p>
-        <p>Этот блог - большая образовательная программа для всех, кто хочет рисовать на iPad.</p>
-        <p>Присоединяйтесь, давайте рисовать вместе ♡</p>
+        <div className={styles.about__content}>
+          <div className={styles.about__story}>
+            <Typography
+              className={styles.about__title}
+              as='h2'
+              CSSType='heading-2'
+            >
+              Об авторе
+            </Typography>
+            <Typography
+              className={styles.about__text}
+              as='p'
+              CSSType='title-m'
+            >
+              Привет! Я - Саша. По образованию дизайнер, по призванию художник. Работала с Rendez-Vous, Cosmopolitan, Seasons Project, Wedding Magazine.
+            </Typography>
+            <Typography
+              className={styles.about__text}
+              as='p'
+              CSSType='title-m'
+            >
+              В роли преподавателя уже 7 лет и часто слышу, что хорошо умею объяснять. Cо мной комфортно, а главное - есть результаты.
+            </Typography>
+            <Typography
+              className={styles.about__text}
+              as='p'
+              CSSType='title-m'
+            >
+              Этот блог - большая образовательная программа для всех, кто хочет рисовать на iPad.
+            </Typography>
+            <Typography
+              className={styles.about__text}
+              as='p'
+              CSSType='title-m'
+            >
+              Присоединяйтесь, давайте рисовать вместе ♡
+            </Typography>
+          </div>
+          <Image
+            src={AboutImage}
+            alt='Sasha Arutunova'
+            width={416}
+            height={640}
+          />
+        </div>
       </section>
       <section>
         <h2>Программа обучения</h2>
-        <ul>
-          <li className={styles.list}>Уроки с обучающим видео и с пошаговой инструкцией</li>
+        <ul className={styles.list}>
+          <li>Уроки с обучающим видео и с пошаговой инструкцией</li>
           <li>Проверка домашней работы с подробными комментариями преподавателя</li>
           <li>Полезная информация и обзоры проверенных кистей в PROCREATE</li>
         </ul>

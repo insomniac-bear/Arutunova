@@ -1,0 +1,44 @@
+@layer ui {
+  .component {
+    padding: 8px 18px;
+    font: var(--title-s);
+    line-height: 1.5;
+    border: none;
+    cursor: pointer;
+  }
+
+  .primary {
+    composes: component;
+    color: var(--light);
+    background-color: var(--main);
+  }
+
+  .primary:disabled {
+    color: var(--main);
+    background-color: var(--40);
+  }
+
+  .secondary {
+    composes: component;
+    padding: 7px 17px;
+    color: var(--main);
+    background-color: inherit;
+    border: 1px solid var(--main);
+  }
+
+  .secondary:disabled {
+    color: var(--main);
+    background-color: var(--40);
+  }
+
+  .component:focus {
+    padding: 6px 14px;
+    border: 2px solid var(--dark);
+  }
+
+    @media (hover: hover) {
+    .primary:hover {
+      background-color: var(--60);
+    }
+  }
+}

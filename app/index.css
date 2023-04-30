@@ -1,4 +1,7 @@
+@layer global, ui, layout, page;
+
 @import url(./vendors/normolize.css);
 @import url(./vendors/fonts/fonts.css);
 @import url(./styles/variables.css);
 @import url(./styles/globals.css);
+

@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import './index.css';
 import styles from './layout.module.css';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
-import logoImage from '../public/logo.svg';
+import { Logo } from './components/logo/logo';
+import { Button } from './components/button/button';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,12 +21,7 @@ export default function RootLayout({
     <html lang="ru">
       <body className={inter.className}>
         <header className={styles.header}>
-          <Image
-            src={logoImage}
-            alt='logo'
-            width={257}
-            height={36}
-          />
+          <Logo />
           <nav className={styles.nav}>
             <ul className={styles.nav_list}>
               <li className={styles.nav_item}>
@@ -43,6 +38,18 @@ export default function RootLayout({
                 <Link href={'/'} className={styles.nav_link}>
                   Блог
                 </Link>
+              </li>
+            </ul>
+            <ul className={styles.button_list}>
+              <li>
+                <Button>
+                  Зарегистрироваться
+                </Button>
+              </li>
+              <li>
+                <Button styleType='secondary'>
+                  Войти
+                </Button>
               </li>
             </ul>
           </nav>
