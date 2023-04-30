@@ -34,10 +34,6 @@
 
 .button {
   margin: 49px 0 0 72px;
-  border: none;
-  padding: 8px 80px;
-  color: var(--light);
-  background-color: var(--main);
 }
 
 .list {

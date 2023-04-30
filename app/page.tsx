@@ -1,6 +1,7 @@
 import styles from './page.module.css';
 import logo from '../public/logo.svg';
 import Image from 'next/image';
+import { Typography } from './components/typography/typography';
 
 export default function Home() {
   return (
@@ -15,23 +16,25 @@ export default function Home() {
           width={739}
           height={87}
         />
-        <h2
+        <Typography
+          as='h2'
+          CSSType='heading-3'
           className={styles.title}
         >
           Иллюстратор / автор обучающих программ программ
-        </h2>
+        </Typography>
         <p
           className={styles.note}
         >
           Обучение скетчингу и рисованию на iPad.
         </p>
         <button
-          className={styles.button}
+          className={`button ${styles.button}`}
         >
           Начать обучаться
         </button>
       </section>
-      <section>
+      <section className={styles.about}>
         <h2>Об авторе</h2>
         <p>Привет! Я - Саша. По образованию дизайнер, по призванию художник. Работала с Rendez-Vous, Cosmopolitan, Seasons Project, Wedding Magazine.</p>
         <p>В роли преподавателя уже 7 лет и часто слышу, что хорошо умею объяснять. Cо мной комфортно, а главное - есть результаты.</p>

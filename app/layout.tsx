@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import './globals.css';
+import './index.css';
 import styles from './layout.module.css';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
