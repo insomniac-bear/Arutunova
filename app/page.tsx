@@ -40,11 +40,11 @@ export default function Home() {
         </Button>
       </section>
 
-      <section className={styles.about}>
-        <div className={styles.about__content}>
-          <div className={styles.about__story}>
+      <section className={styles.container}>
+        <div className={styles.content}>
+          <div className={styles.story}>
             <Typography
-              className={styles.about__title}
+              className={styles.section_title}
               as='h2'
               CSSType='heading-2'
             >
@@ -87,13 +87,40 @@ export default function Home() {
           />
         </div>
       </section>
-      <section>
-        <h2>Программа обучения</h2>
-        <ul className={styles.list}>
-          <li>Уроки с обучающим видео и с пошаговой инструкцией</li>
-          <li>Проверка домашней работы с подробными комментариями преподавателя</li>
-          <li>Полезная информация и обзоры проверенных кистей в PROCREATE</li>
+      <section className={styles.gallery} aria-label='Галлерея'>
+        <ul className={styles.gallery_list}>
+          <li className={`${styles.gallery_img} ${styles.gallery_img__active}`}>
+            <Image src='/gallery/img.jpg' alt='Цветы на балконе' width={818} height={640} />
+          </li>
+          <li className={styles.gallery_img}>
+            <Image src='/gallery/img-1.jpg' alt='Цветы на балконе' width={196} height={640} />
+          </li>
+          <li className={styles.gallery_img}>
+            <Image src='/gallery/img-2.jpg' alt='Цветы на балконе' width={196} height={640} />
+          </li>
+          <li className={styles.gallery_img}>
+            <Image src='/gallery/img-3.jpg' alt='Цветы на балконе' width={196} height={640} />
+          </li>
         </ul>
+      </section>
+      <section className={styles.container}>
+        <div className={styles.content}>
+          <Image src='/program.jpg' alt='Программа обучения' width={416} height={640}/>
+          <div className={styles.about__story}>
+            <Typography
+              className={styles.section_title}
+              as='h2'
+              CSSType='heading-2'
+            >
+              Программа обучения
+            </Typography>
+            <ul className={styles.story}>
+              <Typography as='li' CSSType='title-m' className={styles.program_item}>Уроки с обучающим видео и с пошаговой инструкцией</Typography>
+              <Typography as='li' CSSType='title-m' className={styles.program_item}>Проверка домашней работы с подробными комментариями преподавателя</Typography>
+              <Typography as='li' CSSType='title-m' className={styles.program_item}>Полезная информация и обзоры проверенных кистей в PROCREATE</Typography>
+            </ul>
+          </div>
+        </div>
       </section>
     </main>
   )
