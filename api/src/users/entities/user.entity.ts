@@ -26,6 +26,7 @@ export class User {
 
   @Column({
     type: 'varchar',
+    nullable: true,
   })
   @IsString()
   @Length(2, 30)
@@ -33,6 +34,7 @@ export class User {
 
   @Column({
     type: 'varchar',
+    nullable: true,
   })
   @IsUrl()
   avatar: string;
