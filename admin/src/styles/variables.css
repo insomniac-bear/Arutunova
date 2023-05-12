@@ -1,0 +1,31 @@
+@layer global {
+  :root {
+  /* --- Color schema --- */
+    --light: #f6f6f6;
+    --dark: #303030;
+    --main: #989397;
+
+    --60: #c3c2c2;
+    --40: #e5e3e6;
+    --10: #fdfdfd;
+
+    --error: #ee505a;
+    --success: #19b28d;
+
+    /* --- Font families --- */
+    --font-open-sans: 'Open Sans', 'OpenSans', sans-serif;
+    --font-oswald: Oswald, sans-serif;
+
+    /* --- Sizes --- */
+    --f-h1: normal 500 60px/80px var(--font-oswald);
+    --f-h2: normal 500 32px/48px var(--font-oswald);
+    --f-h3: normal 400 30px/40px var(--font-open-sans);
+    --f-h4: normal 500 24px/32px var(--font-oswald);
+    --f-title-l: normal 600 20px/28px var(--font-open-sans);
+    --f-title-m: normal 400 20px/28px var(--font-open-sans);
+    --f-title-s: normal 600 16px/24px var(--font-open-sans);
+    --f-text-l: normal 400 16px/20px var(--font-open-sans);
+    --f-text-m: normal 400 14px/20px var(--font-open-sans);
+    --f-text-s: normal 400 12px/18px var(--font-open-sans);
+  }
+}

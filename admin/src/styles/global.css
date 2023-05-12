@@ -1,0 +1,24 @@
+@import url(./normalize.css);
+@import url(./variables.css);
+@import url(./fonts.css);
+
+@layer global, ui, component, page, layout;
+
+@layer global {
+  * {
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    max-width: 100vw;
+    width: 100%;
+    min-width: 320px;
+    overflow-x: hidden;
+    background-color: var(--light);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}

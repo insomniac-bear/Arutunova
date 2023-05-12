@@ -1,0 +1,38 @@
+@layer ui {
+  .label {
+    color: var(--main);
+  }
+
+  .input {
+    display: block;
+    margin-top: 4px;
+    padding: 6px 0;
+    color: var(--dark);
+    font: var(--f-text-l);
+    width: 100%;
+    background-color: inherit;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid var(--main);
+    border-left: none;
+    outline-offset: 4px;
+  }
+
+  .input::placeholder {
+    color: var(--main);
+  }
+
+  .input:disabled {
+    color: var(--60);
+    border-bottom: 1px solid var(--60);
+    cursor: not-allowed;
+  }
+
+  .input__error {
+    border-bottom: 1px solid var(--error);
+  }
+
+  .error {
+    color: var(--error);
+  }
+}

@@ -1,0 +1,69 @@
+@layer ui {
+  .typography {
+    margin: 0;
+    padding: 0;
+    color: var(--light);
+  }
+
+  .heading-1 {
+    composes: typography;
+    font: var(--f-h1);
+    line-height: 1.33;
+  }
+
+  .heading-2 {
+    composes: typography;
+    font: var(--f-h2);
+    line-height: 1.5;
+    letter-spacing: .02em;
+  }
+
+  .heading-3 {
+    composes: typography;
+    font: var(--f-h3);
+    line-height: 1.33;
+  }
+
+  .heading-4 {
+    composes: typography;
+    font: var(--f-h4);
+    line-height: 1.33;
+    letter-spacing: .02em;
+  }
+
+  .title-l {
+    composes: typography;
+    font: var(--f-title-l);
+    line-height: 1.4;
+  }
+
+  .title-m {
+    composes: typography;
+    font: var(--f-title-m);
+    line-height: 1.4;
+  }
+
+  .title-s {
+    composes: typography;
+    font: var(--f-title-s);
+    line-height: 1.5;
+  }
+
+  .text-l {
+    composes: typography;
+    font: var(--f-text-l);
+    line-height: 1.5;
+  }
+
+  .text-m {
+    composes: typography;
+    font: var(--f-text-m);
+    line-height: 1.43;
+  }
+
+  .text-s {
+    composes: typography;
+    font: var(--f-text-s);
+    line-height: 1.5;
+  }
+}

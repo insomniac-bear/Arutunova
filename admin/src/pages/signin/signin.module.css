@@ -1,0 +1,54 @@
+@layer page {
+  .main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-width: 320px;
+    min-height: 100vh;
+  }
+
+  .decor {
+    height: 100vh;
+    background-image: url(../../assets/intro-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: cover;
+  }
+
+  .section {
+    min-width: 320px;
+    width: 100%;
+  }
+
+  .heading {
+    margin-left: 10px;
+    color: var(--main);
+  }
+
+  .title {
+    margin: 72px auto 0;
+    color: var(--main);
+    max-width: 416px;
+    text-align: center;
+  }
+
+  .form {
+    display: grid;
+    gap: 24px;
+    margin: 32px auto 0 auto;
+    max-width: 416px;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .decor {
+    display: none;
+  }
+}

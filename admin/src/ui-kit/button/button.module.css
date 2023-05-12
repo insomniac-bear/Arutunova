@@ -1,0 +1,31 @@
+.button {
+  padding: 8px 16px;
+  font: var(--f-title-s);
+  text-align: center;
+  border: none;
+  background-color: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+.primary {
+  color: var(--light);
+  background-color: var(--main);
+}
+
+@media (hover: hover) {
+  .primary:hover {
+    background-color: var(--60);
+  }
+}
+
+.primary:focus {
+  padding: 7px 15px;
+  border: 1px solid var(--dark);
+}
+
+.primary:disabled {
+  color: var(--main);
+  background-color: var(--40);
+  cursor: not-allowed;
+}
