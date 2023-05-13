@@ -1,7 +1,11 @@
+import type { IUser } from '../../../types/user.type';
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../..';
 
-const initialState = {
+const initialState: {
+  data: null | IUser;
+  auth: boolean;
+} = {
   data: null,
   auth: false,
 };

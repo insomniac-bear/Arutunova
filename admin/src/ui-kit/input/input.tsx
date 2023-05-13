@@ -1,10 +1,10 @@
 import styles from './input.module.css';
-import type { FC } from 'react';
+import { forwardRef, Ref } from 'react';
 import type { IInputProps } from './input props';
 import cn from 'classnames';
 import { Typography } from '../typography/typography';
 
-export const Input: FC<IInputProps> = ({ className, error, labelName, ...restProps }) => {
+export const Input = forwardRef(({ className, error, labelName, ...restProps }: IInputProps, ref: Ref<HTMLInputElement>) => {
   const labelStyles = cn(styles.label, {
     [className ?? '']: className,
   });
@@ -16,6 +16,7 @@ export const Input: FC<IInputProps> = ({ className, error, labelName, ...restPro
     <label className={labelStyles}>
       <Typography as='p' CSSType='text-l' className={styles.label}>{labelName}</Typography>
       <input
+        ref={ref}
         className={inputStyles}
         {...restProps}
       />
@@ -26,9 +27,9 @@ export const Input: FC<IInputProps> = ({ className, error, labelName, ...restPro
           CSSType='text-s'
           className={styles.error}
         >
-          {error}
+          {`${error}`}
         </Typography>
       }
     </label>
   )
-}
+});

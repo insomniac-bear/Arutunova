@@ -3,12 +3,12 @@ import type { ActionCreator, AnyAction } from 'redux';
 import type { ThunkAction } from 'redux-thunk';
 import { rootReducer } from './slices';
 // import { api } from '../slices/api/api';
-// import { authApi } from '../slices/api/auth-api';
+import { authApi } from './slices/api/auth.api';
 
 const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([
-    // authApi.middleware,
+    authApi.middleware,
     // api.middleware,
   ]),
   devTools: true,

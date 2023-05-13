@@ -4,7 +4,7 @@ import { UsersService } from 'src/users/users.service';
 import { LocalGuard } from 'src/guards/auth.guard';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
 
-@Controller('auth')
+@Controller('auth/')
 export class AuthController {
   constructor(
     private readonly authService: AuthService,
@@ -12,8 +12,9 @@ export class AuthController {
   ) {}
 
   @UseGuards(LocalGuard)
-  @Post('sigin')
+  @Post('signin')
   sigin(@Req() req) {
+    console.log(req);
     return this.authService.auth(req.user);
   }
 
