@@ -1,0 +1,27 @@
+.container {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  height: 100vh;
+  min-height: 667px;
+}
+
+.aside {
+  padding: 30px;
+  background-color: var(--40);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  color: var(--dark);
+  font: var(--f-title-m);
+}
+
+.active_link {
+  composes: link;
+  text-decoration: underline;
+}

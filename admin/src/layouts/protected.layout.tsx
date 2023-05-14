@@ -1,3 +1,4 @@
+import styles from './layouts.module.css';
 import type { FC } from 'react';
 
 import { NavLink, Navigate, Outlet } from 'react-router-dom';
@@ -10,15 +11,29 @@ export const ProtectedLayout: FC = () => {
   const isAuth = useAppSelector(getAuthStatus);
 
   return isAuth
-    ? <div>
-        <aside>
+    ? <div className={styles.container}>
+        <aside className={styles.aside}>
           <nav>
-            <ul>
-              <li>
-                <NavLink to={Paths.PHOTOS}>Фотографии</NavLink>
+            <ul className={styles.list}>
+              <li className={styles.item}>
+                <NavLink
+                  to={Paths.PHOTOS}
+                  className={({ isActive, isPending }) =>
+                    isPending ? styles.link : isActive ? styles.active_link : styles.link
+                  }
+                >
+                  Фотографии
+                </NavLink>
               </li>
-              <li>
-                <NavLink to={Paths.BLOG}>Блог</NavLink>
+              <li className={styles.item}>
+                <NavLink
+                  to={Paths.BLOG}
+                  className={({ isActive, isPending }) =>
+                    isPending ? styles.link : isActive ? styles.active_link : styles.link
+                  }
+                >
+                  Блог
+                </NavLink>
               </li>
             </ul>
           </nav>

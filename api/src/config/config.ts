@@ -1,3 +1,4 @@
+import { Photo } from 'src/photos/entities/photo.entity';
 import { User } from 'src/users/entities/user.entity';
 
 export default () => ({
@@ -9,7 +10,7 @@ export default () => ({
     user: process.env.DB_USER || 'postgres',
     password: process.env.DB_PASSWORD || 'postgres',
     database: process.env.DB_NAME || 'arutunova',
-    entities: [User],
+    entities: [Photo, User],
     synchronize: process.env.NODE_ENV !== 'production',
   },
   jwtSecret: process.env.JWT_SECRET || 'v#rYsE&Re7kEy',

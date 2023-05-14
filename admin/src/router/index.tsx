@@ -4,6 +4,7 @@ import { Paths } from './paths';
 import { ProtectedLayout } from '../layouts/protected.layout';
 import { AnonymousLayout } from '../layouts/anonymous.layout';
 import { SignInPage } from '../pages/signin/signin.page';
+import { PhotosPage } from '../pages/photos/photos.page';
 
 export const router = createBrowserRouter([
   {
@@ -13,7 +14,12 @@ export const router = createBrowserRouter([
       {
         path: Paths.MAIN,
         element: <ProtectedLayout />,
-        children: [],
+        children: [
+          {
+            path: Paths.PHOTOS,
+            element: <PhotosPage />
+          },
+        ],
       },
       {
         path: Paths.AUTH,
