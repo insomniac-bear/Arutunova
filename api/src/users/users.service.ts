@@ -19,7 +19,7 @@ export class UsersService {
       this.userRepository.save({
         ...createUserDto,
         password: hashed,
-        role: UserRole.USER,
+        roles: UserRole.USER,
       }),
     );
   }
@@ -29,7 +29,7 @@ export class UsersService {
       this.userRepository.save({
         ...createUserDto,
         password: hashed,
-        role: UserRole.ADMIN,
+        roles: UserRole.ADMIN,
       }),
     );
   }

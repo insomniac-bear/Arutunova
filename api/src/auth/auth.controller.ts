@@ -1,8 +1,10 @@
 import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { UsersService } from 'src/users/users.service';
-import { LocalGuard } from 'src/guards/auth.guard';
+import { LocalGuard } from '../guards/auth.guard';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
+import { Roles } from 'src/decorators/roles.decorator';
+import { UserRole } from 'src/const/role.const';
 
 @Controller('auth/')
 export class AuthController {
@@ -14,7 +16,13 @@ export class AuthController {
   @UseGuards(LocalGuard)
   @Post('signin')
   sigin(@Req() req) {
-    console.log(req);
+    return this.authService.auth(req.user);
+  }
+
+  @UseGuards(LocalGuard)
+  @Roles(UserRole.ADMIN)
+  @Post('admin-signin')
+  adminSigin(@Req() req) {
     return this.authService.auth(req.user);
   }
 
