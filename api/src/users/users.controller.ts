@@ -6,11 +6,19 @@ import {
   Patch,
   Param,
   Delete,
+  Req,
+  UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { Roles } from 'src/decorators/roles.decorator';
+import { JwtGuard } from 'src/guards/jwt.guard';
+import { FormatUserInterceptor } from 'src/interceptors/format-user.interceptor';
 
+@UseInterceptors(FormatUserInterceptor)
+@UseGuards(JwtGuard)
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
@@ -23,6 +31,12 @@ export class UsersController {
   @Post('/admin')
   createAdmin(@Body() createUserDto: CreateUserDto) {
     return this.usersService.createAdmin(createUserDto);
+  }
+
+  @Roles('admin')
+  @Get('/admin')
+  getAdmin(@Req() req) {
+    return req.user;
   }
 
   @Get()

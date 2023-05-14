@@ -1,13 +1,20 @@
+import styles from './signin.module.css';
+
 import type { FC } from 'react';
 import type { InferType } from 'yup';
-import styles from './signin.module.css';
+
+import { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { object, string } from 'yup';
+
 import { Typography } from '../../ui-kit/typography/typography';
 import { Input } from '../../ui-kit/input/input';
 import { Button } from '../../ui-kit/button/button';
-import { object, string } from 'yup';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { useSignupMutation } from '../../store/slices/api/auth.api';
+import { useAppDispatch } from '../../store/hooks';
+import { setCookie } from '../../utiil/cookie';
+import { setAuth } from '../../store/slices/user/user.slice';
 
 const schema = object({
   email: string().trim().email('Некорректный email').required('Email является обязательным'),
@@ -17,9 +24,12 @@ const schema = object({
 export type TFormSignIn = InferType<typeof schema>;
 
 export const SignInPage: FC = () => {
+  const dispatch = useAppDispatch();
+
+  const [errMessage, setErrMessage] = useState<string | undefined>(undefined);
+
   const [signup, {
     isLoading,
-    // isSuccess,
   }] = useSignupMutation();
   const {
     register,
@@ -30,11 +40,16 @@ export const SignInPage: FC = () => {
   });
 
   const formHandler: SubmitHandler<TFormSignIn> = (data) => {
-    console.log(data);
     signup(data)
       .unwrap()
-      .then(res => console.log(res))
-      .catch(err => console.log(`err: ${err}`));
+      .then(res => {
+        console.log(res);
+        setCookie('token', res.access_token);
+        dispatch(setAuth(true));
+      })
+      .catch((err) => {
+        setErrMessage(err.data.message);
+      });
   }
 
   return (
@@ -43,6 +58,10 @@ export const SignInPage: FC = () => {
         <Typography as='h1' CSSType='heading-1' className={styles.heading}>Admin Panel</Typography>
         <Typography as='h2' CSSType='heading-4' className={styles.title}>Вход</Typography>
         <form className={styles.form} onSubmit={handleSubmit(formHandler)}>
+          {
+            errMessage &&
+            <Typography as='p' CSSType='text-m' className={styles.error}>{errMessage}</Typography>
+          }
           <Input labelName='Email' type='email' {...register('email')} error={errors.email?.message} />
           <Input labelName='Password' type='password' {...register('password')} error={errors.password?.message} />
           <Button

@@ -5,5 +5,14 @@ export interface IUser {
   email: string;
   full_name?: string;
   avatar?: string;
-  role: Roles;
+  role?: Roles;
+}
+
+export interface IUserResponse {
+  id: string;
+  email: string;
+  full_name: string;
+  avatar?: string;
+  createdAt: string;
+  updatedAt: string;
 }

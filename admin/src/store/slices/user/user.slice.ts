@@ -1,19 +1,37 @@
-import type { IUser } from '../../../types/user.type';
-import { createSlice } from '@reduxjs/toolkit';
+import type { IUser, IUserResponse } from '../../../types/user.type';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../..';
 
 const initialState: {
-  data: null | IUser;
+  data: IUser;
   auth: boolean;
 } = {
-  data: null,
+  data: {
+    id: '',
+    email: '',
+    full_name: '',
+    avatar: '',
+    role: undefined,
+  },
   auth: false,
 };
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    setAuth: (state, action: PayloadAction<boolean>) => {
+      state.auth = action.payload;
+    },
+    setUserData: (state, action: PayloadAction<IUserResponse>) => {
+      state.data = { ...action.payload };
+    }
+  },
 });
+
+export const {
+  setAuth,
+  setUserData,
+} = userSlice.actions;
 
 export const getUser = (state: RootState) => state.user;

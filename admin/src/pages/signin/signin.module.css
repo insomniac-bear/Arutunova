@@ -41,6 +41,10 @@
     max-width: 416px;
     width: 90%;
   }
+
+  .error {
+    color: var(--error);
+  }
 }
 
 @media screen and (max-width: 768px) {

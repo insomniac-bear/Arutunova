@@ -1,5 +1,7 @@
 export enum Paths {
-  MAIN = '/',
   AUTH = '/auth',
+  BLOG = '/blog',
+  MAIN = '/',
+  PHOTOS = '/photos',
   SIGN_IN = '/auth/sign-in',
 }
