@@ -6,7 +6,7 @@ export enum ErrorCode {
   AccessDenied = 102,
   UserNotFound = 103,
   UsersNotFound = 104,
-  WishNotFound = 105,
+  BadFile = 105,
   NoRightsForEdit = 106,
   NoRightsForRemove = 107,
   ValidationError = 112,
@@ -18,10 +18,10 @@ export const code2message = new Map<ErrorCode, string>([
   [ErrorCode.AccessDenied, 'Доступ запрещен'],
   [ErrorCode.UserNotFound, 'Пользователь не найден'],
   [ErrorCode.UsersNotFound, 'Поиск пользователей не дал результатов'],
-  [ErrorCode.WishNotFound, 'Подарок не найден'],
   [ErrorCode.NoRightsForEdit, 'Недостаточно прав для редактирования'],
   [ErrorCode.NoRightsForRemove, 'Недостаточно прав для удаления'],
   [ErrorCode.ValidationError, 'Переданы некоректные значения'],
+  [ErrorCode.BadFile, 'Ошибка загрузки файла'],
 ]);
 
 export const code2status = new Map<ErrorCode, HttpStatus>([
@@ -30,8 +30,8 @@ export const code2status = new Map<ErrorCode, HttpStatus>([
   [ErrorCode.AccessDenied, HttpStatus.FORBIDDEN],
   [ErrorCode.UserNotFound, HttpStatus.NOT_FOUND],
   [ErrorCode.UsersNotFound, HttpStatus.NOT_FOUND],
-  [ErrorCode.WishNotFound, HttpStatus.NOT_FOUND],
   [ErrorCode.NoRightsForEdit, HttpStatus.FORBIDDEN],
   [ErrorCode.NoRightsForRemove, HttpStatus.FORBIDDEN],
   [ErrorCode.ValidationError, HttpStatus.BAD_REQUEST],
+  [ErrorCode.BadFile, HttpStatus.NOT_FOUND],
 ]);

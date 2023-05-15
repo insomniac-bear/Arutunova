@@ -13,5 +13,11 @@ export default () => ({
     entities: [Photo, User],
     synchronize: process.env.NODE_ENV !== 'production',
   },
+  minio: {
+    endPoint: process.env.MINIO_ENDPOINT || 'localhost',
+    port: parseInt(process.env.MINIO_PORT, 10) || 9090,
+    accessKey: process.env.MINIO_ACCESS_KEY || 'minioaccess',
+    secretKey: process.env.MINIO_SECRET_KEY || 'miniosecret',
+  },
   jwtSecret: process.env.JWT_SECRET || 'v#rYsE&Re7kEy',
 });
