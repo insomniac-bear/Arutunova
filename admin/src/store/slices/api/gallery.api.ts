@@ -9,9 +9,10 @@ export const galleryApi = api.injectEndpoints({
         url: ApiUrls.PHOTOS,
         method: 'GET',
       }),
+      providesTags: ['Gallery'],
     }),
 
-    uploadPhoto: builder.mutation<string, File>({
+    uploadPhoto: builder.mutation<{ url: string }, File>({
       query: (file: File) => {
         const formData = new FormData();
         formData.append('gallery', file);
@@ -24,7 +25,32 @@ export const galleryApi = api.injectEndpoints({
       },
     }),
 
+    deletePhoto: builder.mutation<null, string>({
+      query: (url: string) => {
+        const fileName = url.split('/').at(-1);
+        console.log(fileName);
+
+        return ({
+          url: `${ApiUrls.PHOTOS}/upload/${fileName}`,
+          method: 'DELETE',
+        });
+      },
+    }),
+
+    savePhoto: builder.mutation<IPhoto, any>({
+      query: (data) => ({
+        url: ApiUrls.PHOTOS,
+        method: 'POST',
+        body: data,
+      }),
+      invalidatesTags: ['Gallery'],
+    }),
+
   }),
 });
 
-export const { useUploadPhotoMutation } = galleryApi;
+export const {
+  useDeletePhotoMutation,
+  useSavePhotoMutation,
+  useUploadPhotoMutation,
+} = galleryApi;

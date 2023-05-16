@@ -22,7 +22,7 @@ export const GalleryFragment: FC<IGalleryFragmentProps> = ({
         photos.length > 0 &&
         photos.map((photo) => {
           return (
-            <GalleryItem className={styles.list_item} url={photo.url} title={photo.title} description={photo.description} />
+            <GalleryItem key={photo.id} className={styles.list_item} url={photo.url} title={photo.title} />
           )
         })
       }

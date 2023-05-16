@@ -23,6 +23,8 @@ import { UserRole } from 'src/const/role.const';
 export class PhotosController {
   constructor(private readonly photosService: PhotosService) {}
 
+  @UseGuards(JwtGuard)
+  @Roles(UserRole.ADMIN)
   @Post()
   create(@Body() createPhotoDto: CreatePhotoDto) {
     return this.photosService.create(createPhotoDto);
@@ -52,7 +54,17 @@ export class PhotosController {
   @Roles(UserRole.ADMIN)
   @Post('/upload')
   @UseInterceptors(FileInterceptor('gallery'))
-  uploadPhoto(@UploadedFile() image: BufferedFile) {
-    return this.photosService.uploadPhoto(image);
+  async uploadPhoto(@UploadedFile() image: BufferedFile) {
+    const url = await this.photosService.uploadPhoto(image);
+    return {
+      url,
+    };
+  }
+
+  @UseGuards(JwtGuard)
+  @Roles(UserRole.ADMIN)
+  @Delete('/upload/:imageName')
+  deletePhoto(@Param() param: { imageName: string }) {
+    this.photosService.deletePhoto(param.imageName);
   }
 }

@@ -24,16 +24,8 @@ export class Photo {
     nullable: true,
   })
   @IsString()
-  @Length(2, 500)
-  description: string;
-
-  @Column({
-    type: 'varchar',
-    length: 30,
-  })
-  @IsString()
-  @Length(1, 30)
-  name: string;
+  @Length(2, 30)
+  title: string;
 
   @CreateDateColumn()
   createdAt: Date;

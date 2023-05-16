@@ -7,7 +7,6 @@ import { IPhoto } from '../../types/gallery.types';
 export const GalleryItem: FC<HTMLProps<HTMLLIElement> & IPhoto> = ({
   url,
   title,
-  description,
   className,
 }) => {
   const itemClass = cn(styles.item, {

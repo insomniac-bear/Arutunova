@@ -18,4 +18,5 @@ export const api = createApi({
   }),
 
   endpoints: () => ({}),
+  tagTypes: ['Gallery'],
 });

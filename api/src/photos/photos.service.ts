@@ -20,6 +20,14 @@ export class PhotosService {
     return photoUrl;
   }
 
+  async deletePhoto(photoName: string) {
+    try {
+      await this.minioClientService.delete('gallery/', photoName);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   create(createPhotoDto: CreatePhotoDto) {
     return this.photoRepository.save(createPhotoDto);
   }
