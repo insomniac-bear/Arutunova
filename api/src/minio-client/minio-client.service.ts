@@ -7,7 +7,9 @@ import * as crypto from 'crypto';
 
 @Injectable()
 export class MinioClientService {
-  constructor(private readonly minio: MinioService) {}
+  constructor(private readonly minio: MinioService) {
+    this.logger = new Logger('MinioStorageService');
+  }
 
   private readonly logger: Logger;
   private readonly bucketName = process.env.MINO_BUCKET_NAME || 'files';
@@ -47,11 +49,12 @@ export class MinioClientService {
 
     this.client.putObject(bucketName, fileName, fileBuffer, (err, _res) => {
       if (err) {
+        console.log(err);
         throw new ServerException(ErrorCode.BadFile);
       }
     });
 
-    return `https://${process.env.STORAGE_DEV_ROUTE}/${bucketName}/${fileName}`;
+    return `http://127.0.0.1:9000/${bucketName}/${fileName}`;
   }
 
   public async delete(

@@ -13,7 +13,7 @@ import { Input } from '../../ui-kit/input/input';
 import { Button } from '../../ui-kit/button/button';
 import { useSignupMutation } from '../../store/slices/api/auth.api';
 import { useAppDispatch } from '../../store/hooks';
-import { setCookie } from '../../utiil/cookie';
+import { setCookie } from '../../util/cookie';
 import { setAuth } from '../../store/slices/user/user.slice';
 
 const schema = object({

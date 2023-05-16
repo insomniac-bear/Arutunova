@@ -4,13 +4,21 @@ import { UpdatePhotoDto } from './dto/update-photo.dto';
 import { Repository } from 'typeorm';
 import { Photo } from './entities/photo.entity';
 import { InjectRepository } from '@nestjs/typeorm';
+import { BufferedFile } from 'src/minio-client/types/minio.interface';
+import { MinioClientService } from 'src/minio-client/minio-client.service';
 
 @Injectable()
 export class PhotosService {
   constructor(
     @InjectRepository(Photo)
     private photoRepository: Repository<Photo>,
+    private readonly minioClientService: MinioClientService,
   ) {}
+
+  async uploadPhoto(photo: BufferedFile) {
+    const photoUrl = await this.minioClientService.upload('gallery/', photo);
+    return photoUrl;
+  }
 
   create(createPhotoDto: CreatePhotoDto) {
     return this.photoRepository.save(createPhotoDto);

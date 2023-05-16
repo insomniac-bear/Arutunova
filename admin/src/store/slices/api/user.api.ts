@@ -1,6 +1,6 @@
 import { ApiUrls } from '../../../const/urls.const';
 import { IUserResponse } from '../../../types/user.type';
-import { setCookie } from '../../../utiil/cookie';
+import { setCookie } from '../../../util/cookie';
 import { setAuth, setUserData } from '../user/user.slice';
 import { api } from './api';
 

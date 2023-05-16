@@ -4,4 +4,5 @@ export enum ApiUrls {
   AUTH = '/auth',
   USER = '/users',
   SIGN_IN = '/admin-signin',
+  PHOTOS = '/photos',
 }

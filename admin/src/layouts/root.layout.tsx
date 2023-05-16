@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { Outlet, redirect } from 'react-router-dom';
-import { getCookie, setCookie } from '../utiil/cookie';
+import { getCookie, setCookie } from '../util/cookie';
 import store from '../store';
 import { userApi } from '../store/slices/api/user.api';
 import { Paths } from '../router/paths';

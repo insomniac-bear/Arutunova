@@ -14,10 +14,11 @@ export default () => ({
     synchronize: process.env.NODE_ENV !== 'production',
   },
   minio: {
-    endPoint: process.env.MINIO_ENDPOINT || 'localhost',
-    port: parseInt(process.env.MINIO_PORT, 10) || 9090,
-    accessKey: process.env.MINIO_ACCESS_KEY || 'minioaccess',
-    secretKey: process.env.MINIO_SECRET_KEY || 'miniosecret',
+    endPoint: process.env.MINIO_ENDPOINT || '127.0.0.1',
+    port: parseInt(process.env.MINIO_PORT, 10) || 9000,
+    accessKey: process.env.MINIO_ACCESS_KEY || 'Tph7qSRnNs0cr1mp',
+    secretKey:
+      process.env.MINIO_SECRET_KEY || 'jf78y6IfKJrY6X5Ol1fH2r9GI7jgvjIM',
   },
   jwtSecret: process.env.JWT_SECRET || 'v#rYsE&Re7kEy',
 });

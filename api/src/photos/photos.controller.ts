@@ -6,10 +6,18 @@ import {
   Patch,
   Param,
   Delete,
+  UseInterceptors,
+  UploadedFile,
+  UseGuards,
 } from '@nestjs/common';
 import { PhotosService } from './photos.service';
 import { CreatePhotoDto } from './dto/create-photo.dto';
 import { UpdatePhotoDto } from './dto/update-photo.dto';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { BufferedFile } from 'src/minio-client/types/minio.interface';
+import { JwtGuard } from 'src/guards/jwt.guard';
+import { Roles } from 'src/decorators/roles.decorator';
+import { UserRole } from 'src/const/role.const';
 
 @Controller('photos')
 export class PhotosController {
@@ -38,5 +46,13 @@ export class PhotosController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.photosService.remove(+id);
+  }
+
+  @UseGuards(JwtGuard)
+  @Roles(UserRole.ADMIN)
+  @Post('/upload')
+  @UseInterceptors(FileInterceptor('gallery'))
+  uploadPhoto(@UploadedFile() image: BufferedFile) {
+    return this.photosService.uploadPhoto(image);
   }
 }

@@ -20,5 +20,6 @@ import { MinioClientController } from './minio-client.controller';
   ],
   controllers: [MinioClientController],
   providers: [MinioClientService],
+  exports: [MinioClientService],
 })
 export class MinioClientModule {}

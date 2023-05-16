@@ -5,6 +5,7 @@ import { ProtectedLayout } from '../layouts/protected.layout';
 import { AnonymousLayout } from '../layouts/anonymous.layout';
 import { SignInPage } from '../pages/signin/signin.page';
 import { PhotosPage } from '../pages/photos/photos.page';
+import { loader as photosLoader } from '../pages/photos/photos.loader';
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
         children: [
           {
             path: Paths.PHOTOS,
+            loader: photosLoader,
             element: <PhotosPage />
           },
         ],
