@@ -1,4 +1,7 @@
 import type { LinksFunction } from '@remix-run/node';
+import { json } from '@remix-run/node';
+import { useLoaderData } from '@remix-run/react';
+import { GalleryList } from '~/components/gallery-list';
 
 import stylesUrl from '~/styles/index.css';
 
@@ -6,7 +9,20 @@ export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesUrl },
 ];
 
+export const loader = async () => {
+  const res = await fetch('http://localhost:8000/photos');
+  const data: {
+    id: number;
+    url: string;
+    title: string;
+  }[] = await res.json();
+
+  return json({ data });
+};
+
 export default function Index() {
+  const photos = useLoaderData<typeof loader>();
+
   return (
     <main className='main'>
       <section
@@ -73,6 +89,26 @@ export default function Index() {
           />
         </div>
       </section>
+      <section className='gallery' aria-label='Галлерея'>
+        <GalleryList data={photos.data} />
+      </section>
+      <section className='container'>
+        <div className='content'>
+          <img src='/program.jpg' alt='Программа обучения' width={416} height={640}/>
+          <div className='about__story'>
+            <h2
+              className='section_title'
+            >
+              Программа обучения
+            </h2>
+{/*
+  TO DO
+  Добавить список программы обучения
+ */}
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }
