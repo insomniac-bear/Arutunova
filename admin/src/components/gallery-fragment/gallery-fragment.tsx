@@ -3,7 +3,6 @@ import type { FC } from 'react';
 import type { IGalleryFragmentProps } from './gallery-fragment.props';
 
 import cn from 'classnames';
-import { GalleryItem } from '../gallery-item/gallery-item';
 
 const MAX_FRAGMENT_PHOTOS = 7;
 
@@ -17,26 +16,29 @@ export const GalleryFragment: FC<IGalleryFragmentProps> = ({
   });
 
   return (
-    <ul className={fragmentStyles}>
+    <div className={fragmentStyles}>
       {
         photos.length > 0 &&
         photos.map((photo) => {
           return (
-            <GalleryItem key={photo.id} className={styles.list_item} url={photo.url} title={photo.title} />
+            <img
+              key={photo.id}
+              className={styles.list_item}
+              src={photo.url}
+              alt={photo.title}
+            />
           )
         })
       }
       {
         photos.length < MAX_FRAGMENT_PHOTOS &&
-        <li className={styles.list_item}>
-          <button
-            onClick={onAddButtonClick}
-            className={styles.add_button}
-          >
-            +
-          </button>
-        </li>
+        <button
+          onClick={onAddButtonClick}
+          className={`${styles.add_button} ${styles.list_item}`}
+        >
+          +
+        </button>
       }
-    </ul>
+    </div>
   );
 };

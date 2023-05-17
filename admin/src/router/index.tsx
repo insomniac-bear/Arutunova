@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { RootLayout, loader as authLoader } from '../layouts/root.layout';
+import { RootLayout } from '../layouts/root.layout';
+import { loader as authLoader } from '../layouts/root.loader';
 import { Paths } from './paths';
 import { ProtectedLayout } from '../layouts/protected.layout';
 import { AnonymousLayout } from '../layouts/anonymous.layout';

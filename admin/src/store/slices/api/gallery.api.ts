@@ -1,5 +1,6 @@
 import { ApiUrls } from '../../../const/urls.const';
 import { IPhoto } from '../../../types/gallery.types';
+import { setGallery } from '../gallery/gallery.slice';
 import { api } from './api';
 
 export const galleryApi = api.injectEndpoints({
@@ -9,6 +10,12 @@ export const galleryApi = api.injectEndpoints({
         url: ApiUrls.PHOTOS,
         method: 'GET',
       }),
+      async onQueryStarted(args, { dispatch, queryFulfilled }) {
+          await queryFulfilled
+            .then((res) => {
+              dispatch(setGallery(res.data));
+            });
+      },
       providesTags: ['Gallery'],
     }),
 
