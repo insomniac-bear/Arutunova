@@ -4,9 +4,11 @@ import { useLoaderData } from '@remix-run/react';
 import { GalleryList } from '~/components/gallery-list';
 
 import stylesUrl from '~/styles/index.css';
+import typographyStylesUrl from '~/styles/typography.css';
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesUrl },
+  { rel: 'stylesheet', href: typographyStylesUrl },
 ];
 
 export const loader = async () => {
@@ -89,22 +91,31 @@ export default function Index() {
           />
         </div>
       </section>
+
       <section className='gallery' aria-label='Галлерея'>
         <GalleryList data={photos.data} />
       </section>
+
       <section className='container'>
         <div className='content'>
-          <img src='/program.jpg' alt='Программа обучения' width={416} height={640}/>
+          <img src='/img/program.jpg' alt='Программа обучения' width={416} height={640}/>
           <div className='about__story'>
             <h2
-              className='section_title'
+              className='heading-2 section__title'
             >
               Программа обучения
             </h2>
-{/*
-  TO DO
-  Добавить список программы обучения
- */}
+            <ul className='story'>
+              <li className='program_item title-m'>
+                Уроки с обучающим видео и с пошаговой инструкцией
+              </li>
+              <li className='program_item title-m'>
+                Проверка домашней работы с подробными комментариями преподавателя
+              </li>
+              <li className='program_item title-m'>
+                Полезная информация и обзоры проверенных кистей в PROCREATE
+              </li>
+            </ul>
           </div>
         </div>
       </section>
