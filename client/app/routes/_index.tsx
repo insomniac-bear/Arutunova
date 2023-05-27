@@ -12,7 +12,7 @@ export const links: LinksFunction = () => [
 ];
 
 export const loader = async () => {
-  const res = await fetch('http://localhost:8000/photos');
+  const res = await fetch('http://localhost:8000/photos?limit=4');
   const data: {
     id: number;
     url: string;

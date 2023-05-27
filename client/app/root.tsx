@@ -52,7 +52,7 @@ export default function App() {
                 </Link>
               </li>
               <li className='nav__item'>
-                <Link to='/' className='nav__link'>
+                <Link to='/gallery' className='nav__link'>
                   Галерея
                 </Link>
               </li>

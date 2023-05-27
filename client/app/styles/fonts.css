@@ -2,8 +2,8 @@
   font-family: Oswald;
   src:
     local(Oswald),
-    url(/Oswald-Medium.woff2) format('woff2'),
-    url(/Oswald-Medium.woff) format('woff');
+    url(/fonts/Oswald-Medium.woff2) format('woff2'),
+    url(/fonts/Oswald-Medium.woff) format('woff');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -13,8 +13,8 @@
   font-family: OpenSans;
   src:
     local(OpenSans),
-    url(/OpenSans-Regular.woff2) format('woff2'),
-    url(/OpenSans-Regular.woff) format('woff');
+    url(/fonts/OpenSans-Regular.woff2) format('woff2'),
+    url(/fonts/OpenSans-Regular.woff) format('woff');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -24,8 +24,8 @@
   font-family: OpenSans;
   src:
     local(OpenSans),
-    url(/OpenSans-SemiBold.woff2) format('woff2'),
-    url(/OpenSans-SemiBold.woff) format('woff');
+    url(/fonts/OpenSans-SemiBold.woff2) format('woff2'),
+    url(/fonts/OpenSans-SemiBold.woff) format('woff');
     font-style: normal;
   font-weight: 600;
   font-display: swap;

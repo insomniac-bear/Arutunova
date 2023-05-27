@@ -153,25 +153,6 @@ export const PhotosPage: FC = () => {
         >
           {
             ComponentToRender()
-          //   !getValues('url') &&
-          //   <label
-          //     className={styles.custom_file_upload}
-          //   >
-          //     <Typography as='span' CSSType='heading-3'>+</Typography>
-          //     <input
-          //       type='file'
-          //       ref={fileRef}
-          //       onChange={onUploadFormChange}
-          //     />
-          //   </label>
-          // }
-          // {
-          //   getValues('url') &&
-          //   <img
-          //     className={styles.preview}
-          //     src={getValues('url')}
-          //     alt='preview'
-          //   />
           }
           <form className={styles.upload_form} onSubmit={handleSubmit(formHandler)}>
             <Input labelName='Название' type='text' {...register('title')} error={errors.title?.message} />

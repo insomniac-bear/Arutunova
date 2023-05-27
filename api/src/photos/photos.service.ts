@@ -32,7 +32,15 @@ export class PhotosService {
     return this.photoRepository.save(createPhotoDto);
   }
 
-  findAll() {
+  findAll(limit?: number, skip?: number) {
+    if (limit) {
+      return this.photoRepository.find({
+        take: limit,
+        skip,
+        order: { createdAt: 'DESC' },
+      });
+    }
+
     return this.photoRepository.find();
   }
 

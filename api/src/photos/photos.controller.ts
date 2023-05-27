@@ -9,6 +9,7 @@ import {
   UseInterceptors,
   UploadedFile,
   UseGuards,
+  Query,
 } from '@nestjs/common';
 import { PhotosService } from './photos.service';
 import { CreatePhotoDto } from './dto/create-photo.dto';
@@ -31,8 +32,10 @@ export class PhotosController {
   }
 
   @Get()
-  findAll() {
-    return this.photosService.findAll();
+  findAll(@Query() params) {
+    const limit = params.limit ? Number(params.limit) : undefined;
+    const skip = params.skip ? Number(params.skip) : 0;
+    return this.photosService.findAll(limit, skip);
   }
 
   @Get(':id')
