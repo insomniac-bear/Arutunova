@@ -1,9 +1,11 @@
 import { IsEmail, IsString, IsUrl, Length } from 'class-validator';
 import { UserRole } from 'src/const/role.const';
+import { Post } from 'src/post/entities/post.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -51,4 +53,7 @@ export class User {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToMany(() => Post, (post) => post.user)
+  posts: Post[];
 }

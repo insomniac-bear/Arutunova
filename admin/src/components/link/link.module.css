@@ -1,0 +1,4 @@
+.link {
+  color:var(--success);
+  text-decoration: underline;
+}

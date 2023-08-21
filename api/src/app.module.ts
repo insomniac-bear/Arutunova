@@ -10,6 +10,8 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { MinioClientModule } from './minio-client/minio-client.module';
 import { PhotosModule } from './photos/photos.module';
+import { PostModule } from './post/post.module';
+import { TagModule } from './tag/tag.module';
 
 @Module({
   imports: [
@@ -37,6 +39,8 @@ import { PhotosModule } from './photos/photos.module';
     AuthModule,
     MinioClientModule,
     PhotosModule,
+    PostModule,
+    TagModule,
   ],
   controllers: [],
   providers: [DatabaseService],

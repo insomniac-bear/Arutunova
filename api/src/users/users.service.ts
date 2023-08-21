@@ -6,6 +6,8 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { UserRole } from 'src/const/role.const';
+import { ServerException } from 'src/exceptions/server.exception';
+import { ErrorCode } from 'src/exceptions/error-codes';
 
 @Injectable()
 export class UsersService {
@@ -35,7 +37,7 @@ export class UsersService {
   }
 
   findAll() {
-    return `This action returns all users`;
+    return this.userRepository.find();
   }
 
   findById(id: number): Promise<User> {
@@ -46,11 +48,21 @@ export class UsersService {
     return this.userRepository.findOneBy({ email });
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(id: number, updateUserDto: UpdateUserDto) {
+    const candidate = await this.findById(id);
+    if (!candidate) {
+      throw new ServerException(ErrorCode.UserNotFound);
+    }
+
+    return this.userRepository.save(updateUserDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  async remove(id: number) {
+    const candidate = await this.findById(id);
+    if (!candidate) {
+      throw new ServerException(ErrorCode.UserNotFound);
+    }
+
+    return this.userRepository.remove(candidate);
   }
 }

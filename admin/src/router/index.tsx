@@ -7,6 +7,7 @@ import { AnonymousLayout } from '../layouts/anonymous.layout';
 import { SignInPage } from '../pages/signin/signin.page';
 import { PhotosPage } from '../pages/photos/photos.page';
 import { loader as photosLoader } from '../pages/photos/photos.loader';
+import { BlogPage } from '../pages/blog/blog.page';
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
             path: Paths.PHOTOS,
             loader: photosLoader,
             element: <PhotosPage />
+          },
+          {
+            path: Paths.BLOG,
+            element: <BlogPage />,
           },
         ],
       },

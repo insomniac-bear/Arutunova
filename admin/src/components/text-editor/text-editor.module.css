@@ -1,0 +1,7 @@
+.editor {
+  display: block;
+  padding: 20px;
+  width: 80%;
+  border: 1px solid var(--60);
+  background-color: var(--10);
+}

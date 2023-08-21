@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  /* gap: 10px; */
+  padding-top: 10px;
+  width: 80%;
+  border-top: 1px solid var(--60);
+}
+
+.button {
+  margin: 0;
+  padding: 1px 3px 1px 3px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-right: 1px solid var(--60);
+}
+
+.button:last-child {
+  border-right: none;
+}
+
+.active {
+  background-color: var(--error);
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.highlight {
+  color: var(--success);
+}

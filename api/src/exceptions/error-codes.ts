@@ -10,6 +10,9 @@ export enum ErrorCode {
   NoRightsForEdit = 106,
   NoRightsForRemove = 107,
   ValidationError = 112,
+  TagAlreadyExist = 113,
+  TagNotFound = 114,
+  PostNotFound = 115,
 }
 
 export const code2message = new Map<ErrorCode, string>([
@@ -22,6 +25,9 @@ export const code2message = new Map<ErrorCode, string>([
   [ErrorCode.NoRightsForRemove, 'Недостаточно прав для удаления'],
   [ErrorCode.ValidationError, 'Переданы некоректные значения'],
   [ErrorCode.BadFile, 'Ошибка загрузки файла'],
+  [ErrorCode.TagAlreadyExist, 'Тэг уже существует'],
+  [ErrorCode.TagNotFound, 'Тэг не найден'],
+  [ErrorCode.PostNotFound, 'Запись блога не найдена'],
 ]);
 
 export const code2status = new Map<ErrorCode, HttpStatus>([
@@ -34,4 +40,7 @@ export const code2status = new Map<ErrorCode, HttpStatus>([
   [ErrorCode.NoRightsForRemove, HttpStatus.FORBIDDEN],
   [ErrorCode.ValidationError, HttpStatus.BAD_REQUEST],
   [ErrorCode.BadFile, HttpStatus.NOT_FOUND],
+  [ErrorCode.TagAlreadyExist, HttpStatus.BAD_REQUEST],
+  [ErrorCode.TagNotFound, HttpStatus.NOT_FOUND],
+  [ErrorCode.PostNotFound, HttpStatus.NOT_FOUND],
 ]);
